@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SimpleBlog2</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <main class="container mx-auto mt-28 px-5 flex">
+
+			<% alert %>
+					<div class="border border-2 border-rose-500 bg-red-600 text-slate-200 rounded ">
+					</div>
+		    <% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>

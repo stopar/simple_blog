@@ -1,0 +1,21 @@
+<div class="my-5 mx-auto">
+  <h1 class="text-3xl text-center font-bold">Sign up to Simple Blog</h1>
+
+	<%= form_with model: @new_user, url: registrations_path do |form| %>
+	
+		<div>
+			<%= form.label :email, class: "block mt-8 uppercase" %>
+			<%= form.email_field :email, class: "border-gray-600 text-sm rounded-lg 
+	focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" %>
+		</div>
+		
+		<div>
+			<%= form.label :password, class: "block mt-8 uppercase" %>
+			<%= form.password_field :password, class: "border-gray-600 text-sm rounded-lg 
+	focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" %>
+			<p class="text-xs text-slate-400">Must be minium 6 characters long</p>
+		</div>
+		
+		<%= form.submit "Sign Me Up", class: "mt-8 btn-primary"%>
+	<% end %>
+</div>
