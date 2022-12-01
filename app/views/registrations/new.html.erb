@@ -2,7 +2,7 @@
   <h1 class="text-3xl text-center font-bold text-orange-600 mb-5">Simple Blog</h1>
   <h1 class="text-3xl text-center font-bold">SIGN UP</h1>
 
-	<%= form_with model: @new_user, url: registrations_path do |form| %>
+	<%= form_with model: @user, url: registrations_path do |form| %>
 	
 		<div>
 			<%= form.label :email, class: "block mt-8 uppercase" %>
@@ -17,9 +17,9 @@
 			<p class="text-xs text-slate-400">Must be minium 5 characters long</p>
 		</div>
 		
-		<%= form.submit "Sign Me Up", class: "w-full mt-6 btn-primary mb-8"%>
+		<%= form.submit "Sign Me Up!", class: "w-full mt-6 btn-primary mb-8"%>
 	<% end %>
 	
-    <%= link_to sanitize("&larr; Return to Login"), root_path, 
+    <%= link_to sanitize("&larr; Return to Login"), new_login_path, 
         class: "hover:text-blue-400" %>
 </div>

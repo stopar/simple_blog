@@ -1,0 +1,14 @@
+<tr class="border-b border-gray-200 hover:bg-gray-100">
+
+	<td class="py-3 px-6 text-center">
+		<%= link_to post.title, post_path(post), class:"text-teal-800 hover:text-sky-800 cursor-pointer" %>
+	</td>
+
+	<td class="py-3 px-6 text-center">
+		<%= post.user.name %>
+	</td>
+
+	<td class="py-3 px-6 text-center">
+		<%= time_ago_in_words(post.created_at) %> ago
+	</td>
+</tr>

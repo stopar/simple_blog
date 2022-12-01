@@ -1,0 +1,19 @@
+<div>
+    <%= link_to sanitize("&larr; Return to posts"), root_path, 
+        class: "hover:text-blue-400" %>
+</div>
+
+<div class="mt-8">
+  <h1 class="mb-8 text-3xl text-center text-orange-600"><%= @post.title %></h1>
+  <p><%= @post.content %></p>
+</div>
+
+<% if @user %>
+
+	<% if @user.id == @post.user.id %>
+		<div class="mt-8 grid justify-items-end">
+			<%= link_to sanitize("Edit this post &rarr;"), edit_post_path(@post.id),  class: "hover:text-blue-400" %>
+		</div>
+	<% end %>
+	
+<% end %>

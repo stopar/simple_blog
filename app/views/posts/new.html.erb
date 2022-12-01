@@ -1,0 +1,16 @@
+<div class="my-5 w-full flex justify-left">
+    <%= link_to sanitize("&larr; List all posts"), posts_path, 
+        class: "hover:text-blue-400 mb" %>
+</div>
+
+	<h1 class="text-center text-3xl font-bold text-orange-600 mb-5">New Post</h1>
+	
+	 <%= form_with model: @post, url: posts_path do |p| %>
+	 
+	 	<%= render 'form', post: p %>
+		
+		<%= p.submit "Create Post", class: "btn-primary"%>
+	 <% end %>
+	 
+	
+

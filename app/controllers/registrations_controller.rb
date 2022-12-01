@@ -1,12 +1,17 @@
 class RegistrationsController < ApplicationController
+  
+  before_action :find_user, only: [:new]
+  
   def new
-    @new_user = User.new
+    redirect_to root_path if @user
+    @user = User.new
   end
 
   def create
-    @new_user = User.new(registration_params)
+    @user = User.new(registration_params)
+    @user.name = @user.email[/[^@]+/]
     
-    if @new_user.save
+    if @user.save
       flash[:notice] = "User successfully created, please login"
       redirect_to new_login_path 
     else
@@ -17,6 +22,10 @@ class RegistrationsController < ApplicationController
   end
 
   private
+  
+  # def find_user
+  #   @existing_user = User.find_by(id: session[:user_id])
+  # end
   
   def registration_params
     params.require(:user).permit(:email, :password)

@@ -1,0 +1,14 @@
+<div class="my-5 w-full flex justify-left">
+    <%= link_to sanitize("&larr; Back to post"), post_path(@post), 
+        class: "hover:text-blue-400 mb" %>
+</div>
+
+	<h1 class="text-center text-3xl font-bold text-orange-600 mb-5">Edit Post</h1>
+	
+	 <%= form_with model: @post, url: post_path(@post) do |p| %>
+	 	
+		<%= render 'form', post: p %>
+		
+		<%= p.submit "Update Post", class: "btn-primary"%>
+		
+	 <% end %>

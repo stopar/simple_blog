@@ -1,0 +1,50 @@
+<div class="my-5 mx-auto w-full">
+
+	<% if @user %>
+	  <div class="flex justify-between">
+		<div>
+			<p>Welcome <%= @user.name%> | <%= link_to "Logout", logout_path, method: :delete, 
+				class: "hover:text-blue-400" %></p>
+		</div>
+		
+		<div>
+			<%= link_to sanitize("Create a post &rarr;"), new_post_path, class: "hover:text-blue-400" %>
+		</div>
+	  </div>
+	<% else %>
+		<div>
+	    <%= link_to sanitize("&larr; Login"), new_login_path, 
+	        class: "hover:text-blue-400" %>
+		</div>
+
+	<% end %>
+
+	
+<% if @posts %>
+
+		<h1 class="font-bold text-3xl text-center text-orange-600">All posts</h1>
+		
+	  	<table class="mt-8 w-full table-auto border-collapse border border-slate-500">
+			<thead>
+				<tr class="bg-zinc-200 text-gray-600 uppercase text-sm leading-normal">
+					<th class="py-3 px-6 text-center">Title</th>
+					<th class="py-3 px-6 text-center">Author</th>
+					<th class="py-3 px-6 text-center">Created</th>
+				</tr>
+			</thead>
+			<tbody class="text-gray-600 text-sm font-light">
+				<%=  render @posts %>
+			</tbody>
+		
+		</table>
+		
+<% else %>
+	
+	<div class="w-96 mx-auto">
+		<h1 class="font-bold text-4xl text-center mb-8">No posts</h1>
+		<%= link_to "Create a post", new_post_path, class:"flex justify-center btn-primary" %>
+	</div>
+	
+<% end %>
+
+</div>
