@@ -12,13 +12,22 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-
-			<% alert %>
-					<div class="border border-2 border-rose-500 bg-red-600 text-slate-200 rounded ">
-					</div>
-		    <% end %>
+    <main class="container mx-auto mt-8 px-5 flex flex-col">
+	
+	  <% if alert %>
+		  <div class="px-5 mx-auto">
+			  <div class="font-bold mt-8 border-2 border-rose-200 rounded-lg bg-rose-300 text-white p-4"><%= alert %></div>
+		  </div>
+	  <% end %>
+	  
+	  <% if notice %>
+		  <div class="px-5 mx-auto">
+			  <div class="font-bold mt-8 border-2 border-lime-200 rounded-lg bg-lime-300 text-gray-600 p-4"><%= notice %></div>
+		  </div>
+	  <% end %>
+	  
       <%= yield %>
+	  
     </main>
   </body>
 </html>
