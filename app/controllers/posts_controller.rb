@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   
-  before_action :find_user, only: [:index, :new, :create, :show]
+  before_action :find_user, only: [:index, :new, :create, :show, :edit]
   before_action :find_post, only: [:show, :edit, :update]
   
   def index
@@ -30,6 +30,17 @@ class PostsController < ApplicationController
   end
 
   def edit
+    
+    if @user.nil? 
+      flash[:alert] = "Please login before editing"
+      redirect_to new_login_path 
+    else
+      unless @post.user.id == @user.id
+        flash[:alert] = "You are not authorize!"
+        redirect_to post_path(@post)
+      end
+    end 
+    
   end
   
   def update
@@ -40,6 +51,7 @@ class PostsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+    
   end
   
   private
